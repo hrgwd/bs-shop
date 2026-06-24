@@ -16,9 +16,6 @@ vue/dist/
 .env
 .env.*
 
-# Upload files
-files/
-
 # OS
 Thumbs.db
 .DS_Store
