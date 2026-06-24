@@ -1,0 +1,27 @@
+# Java
+springboot/target/
+
+# Vue
+vue/node_modules/
+vue/dist/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Env
+.env
+.env.*
+
+# Upload files
+files/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Local secrets override
+springboot/src/main/resources/application-local.yml

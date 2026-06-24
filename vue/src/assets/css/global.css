@@ -1,0 +1,330 @@
+/* ── CSS 变量  */
+:root {
+    /* 主色·B站粉 */
+    --pink:        #FB7299;
+    --pink-hover:  #fa5984;
+    --pink-light:  #fff0f4;   
+    --pink-deep:   #c45071;   
+
+    /* 辅色·B站蓝 */
+    --blue:        #00AEEC;
+    --blue-hover:  #0099d4;
+    --blue-light:  #e8f7fd;   
+    --blue-deep:   #0077a3;   
+
+    /* 中性色 */
+    --bg:          #f5f6fa;
+    --surface:     #ffffff;
+    --border:      #dcdfe6;   
+    --border-light:#ebeef5;  
+
+    /* 文字色*/
+    --text-primary:   #303133;   /* 主文字 */
+    --text-regular:   #606266;   /* 次要文字 */
+    --text-secondary: #909399;   /* 辅助文字 */
+    --text-placeholder: #c0c4cc; /* 占位符 */
+
+    /* 白色文字（深色/彩色背景专用）*/
+    --text-on-color: #ffffff;
+
+    /* 圆角 */
+    --radius-sm:  4px;
+    --radius-md:  8px;
+    --radius-lg:  12px;
+    --radius-xl:  16px;
+    --radius-full: 9999px;
+
+    /* 阴影（粉色调） */
+    --shadow-sm:  0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md:  0 4px 16px rgba(251, 114, 153, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+    --shadow-lg:  0 8px 28px rgba(251, 114, 153, 0.16), 0 4px 10px rgba(0, 0, 0, 0.07);
+    --shadow-xl:  0 16px 48px rgba(251, 114, 153, 0.18), 0 6px 16px rgba(0, 0, 0, 0.08);
+
+    /* 过渡 */
+    --transition: 0.2s ease;
+}
+
+/* ── 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    /* 防止横向压缩变 */
+    min-width: 1280px;
+    overflow-x: auto;
+}
+
+body {
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                 "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg);
+    line-height: 1.5;
+    min-width: 1280px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ── 滚动条美化  */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(251, 114, 153, 0.3);
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(251, 114, 153, 0.55);
+}
+
+/* ── 文字选中高亮 ───────────────────────────────────────── */
+::selection {
+    background: rgba(251, 114, 153, 0.2);
+    color: var(--pink-deep);
+}
+
+/* ── 淡入动画 ───────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* ─ Button */
+.el-button--primary {
+    background-color: var(--pink) !important;
+    border-color: var(--pink) !important;
+    color: var(--text-on-color) !important;
+}
+.el-button--primary:hover,
+.el-button--primary:focus {
+    background-color: var(--pink-hover) !important;
+    border-color: var(--pink-hover) !important;
+    color: var(--text-on-color) !important;
+}
+.el-button--primary:active {
+    background-color: #e0567a !important;
+    border-color: #e0567a !important;
+    color: var(--text-on-color) !important;
+}
+.el-button--primary.is-plain {
+    background-color: var(--pink-light) !important;
+    border-color: var(--pink) !important;
+    color: var(--pink-deep) !important;      /* 浅粉底 → 深粉字 */
+}
+.el-button--primary.is-plain:hover {
+    background-color: var(--pink) !important;
+    color: var(--text-on-color) !important;
+}
+
+/* ─ Button 文字按钮 → 粉色 ─ */
+.el-button--text {
+    color: var(--pink) !important;
+}
+.el-button--text:hover,
+.el-button--text:focus {
+    color: var(--pink-hover) !important;
+    background-color: var(--pink-light) !important;
+}
+
+/* ─ Input focus 边框 → 粉色 ─ */
+.el-input__inner:focus {
+    border-color: var(--pink) !important;
+}
+.el-input.is-active .el-input__inner,
+.el-input__inner:focus {
+    border-color: var(--pink) !important;
+}
+/* input 文字保持可读 */
+.el-input__inner {
+    color: var(--text-primary) !important;
+}
+.el-input__inner::placeholder {
+    color: var(--text-placeholder) !important;
+}
+
+/* ─ Select ─ */
+.el-select .el-input__inner:focus {
+    border-color: var(--pink) !important;
+}
+.el-select-dropdown__item.selected {
+    color: var(--pink-deep) !important;
+    font-weight: 700;
+}
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover {
+    background-color: var(--pink-light) !important;
+}
+
+/* ─ Checkbox → 粉色 ─ */
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: var(--pink) !important;
+    border-color: var(--pink) !important;
+}
+.el-checkbox__input.is-focus .el-checkbox__inner {
+    border-color: var(--pink) !important;
+}
+.el-checkbox__input.is-checked + .el-checkbox__label {
+    color: var(--pink-deep) !important;
+}
+.el-checkbox:hover .el-checkbox__inner {
+    border-color: var(--pink) !important;
+}
+
+/* ─ Radio → 粉色 ─ */
+.el-radio__input.is-checked .el-radio__inner {
+    border-color: var(--pink) !important;
+    background: var(--pink) !important;
+}
+.el-radio__input.is-checked + .el-radio__label {
+    color: var(--pink-deep) !important;
+}
+.el-radio:hover .el-radio__inner {
+    border-color: var(--pink) !important;
+}
+
+/* ─ Switch → 粉色 ─ */
+.el-switch.is-checked .el-switch__core {
+    border-color: var(--pink) !important;
+    background-color: var(--pink) !important;
+}
+
+/* ─ Slider → 粉色 ─ */
+.el-slider__bar {
+    background-color: var(--pink) !important;
+}
+.el-slider__button {
+    border-color: var(--pink) !important;
+}
+.el-slider__runway.show-input {
+    margin-right: 160px;
+}
+
+/* ─ Tabs 激活 → 粉色，文字深色保持可读 ─ */
+.el-tabs__item {
+    color: var(--text-regular) !important;
+}
+.el-tabs__item:hover {
+    color: var(--pink) !important;
+}
+.el-tabs__item.is-active {
+    color: var(--pink-deep) !important;      /* 白底 Tabs → 深粉字 */
+}
+.el-tabs__active-bar {
+    background-color: var(--pink) !important;
+}
+
+/* ─ Tag 默认 → 粉色系，文字对比保证 ─ */
+.el-tag {
+    background-color: var(--pink-light) !important;
+    border-color: #fbbdd0 !important;
+    color: var(--pink-deep) !important;      /* 浅粉底 → 深粉字 */
+}
+.el-tag--success {
+    background-color: #f0f9eb !important;
+    border-color: #c2e7b0 !important;
+    color: #3c763d !important;
+}
+.el-tag--info {
+    background-color: var(--blue-light) !important;
+    border-color: #9ddff5 !important;
+    color: var(--blue-deep) !important;      /* 浅蓝底 → 深蓝字 */
+}
+.el-tag--warning {
+    background-color: #fdf6ec !important;
+    border-color: #f5dab1 !important;
+    color: #8c4a00 !important;
+}
+.el-tag--danger {
+    background-color: #fef0f0 !important;
+    border-color: #fbc4c4 !important;
+    color: #7f0000 !important;
+}
+
+/* ─ Pagination 激活页 → 粉色 ─ */
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: var(--pink) !important;
+    color: var(--text-on-color) !important;  /* 粉底 → 白字 */
+}
+.el-pagination.is-background .el-pager li:not(.disabled):hover {
+    color: var(--pink-deep) !important;
+}
+.el-pagination .el-pager li.active {
+    color: var(--pink-deep) !important;
+}
+.el-pagination button:hover {
+    color: var(--pink-deep) !important;
+}
+
+/* ─ Loading 旋转色 → 粉色 ─ */
+.el-loading-spinner .path {
+    stroke: var(--pink) !important;
+}
+.el-loading-spinner .el-loading-text {
+    color: var(--pink) !important;
+}
+
+/* ─ Message 保持 Element UI 默认样式 ─ */
+
+/* ─ Dialog 标题文字 ─ */
+.el-dialog {
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-xl) !important;
+}
+.el-dialog__title {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+.el-dialog__body {
+    color: var(--text-primary) !important;
+}
+
+/* ─ Form 标签文字 ─ */
+.el-form-item__label {
+    color: var(--text-regular) !important;
+}
+
+/* ─ Rate → 粉色 ─ */
+.el-rate__icon.is-active,
+.el-rate .el-rate__item:hover .el-rate__icon {
+    color: var(--pink) !important;
+}
+
+/* ─ Progress → 粉色 ─ */
+.el-progress-bar__inner {
+    background: linear-gradient(90deg, var(--pink-light), var(--pink)) !important;
+}
+
+/* ─ Upload ─ */
+.el-upload--picture-card:hover,
+.el-upload:focus {
+    border-color: var(--pink) !important;
+    color: var(--pink) !important;
+}
+
+/* ─ Notification 标题文字 ─ */
+.el-notification {
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-xl) !important;
+}
+.el-notification__title {
+    color: var(--text-primary) !important;
+}
+.el-notification__content {
+    color: var(--text-regular) !important;
+}

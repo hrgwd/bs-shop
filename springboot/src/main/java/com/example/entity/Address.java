@@ -1,0 +1,65 @@
+package com.example.entity;
+
+import java.io.Serializable;
+
+/**
+ * 地址
+*/
+public class Address implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    /** ID */
+    private Integer id;
+    /** 用户ID */
+    private Integer userId;
+    /** 用户姓名 */
+    private String username;
+    /** 手机号码 */
+    private String phone;
+     /** 用户地址 */
+    private String useraddress;                                                                                                                                                                                                                                                                                                                                                                                                                           ;
+        
+    
+
+
+    public Integer getId() {
+        return id;
+    }  
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUseraddress() {
+        return useraddress;
+    }
+
+    public void setUseraddress(String useraddress) {
+        this.useraddress = useraddress;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+}

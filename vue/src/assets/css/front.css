@@ -1,0 +1,158 @@
+
+/* ── 公告栏 */
+.front-notice {
+    padding: 5px 20px;
+    color: var(--text-secondary);          
+    font-size: 12px;
+    background: linear-gradient(90deg, var(--pink-light) 0%, #fff 60%);
+    border-bottom: 1px solid #fdd6e2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── 顶部 Header*/
+.front-header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 2px solid #fdd6e2;
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-width: 1280px;
+    white-space: nowrap;
+}
+
+.front-header-left {
+    flex-shrink: 0;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.front-header-left img,
+.front-header-dropdown img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fdd6e2;
+    object-fit: cover;
+    transition: border-color var(--transition);
+}
+.front-header-left img:hover,
+.front-header-dropdown img:hover {
+    border-color: var(--pink);
+}
+
+/* 站名： */
+.front-header-left .title {
+    flex: 1;
+    color: var(--pink);
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color var(--transition);
+}
+.front-header-left .title:hover {
+    color: var(--pink-hover);
+}
+
+.front-header-center {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.front-header-right {
+    flex-shrink: 0;
+    width: 200px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.front-header-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+/* ── 右上角下拉菜单 */
+.el-dropdown-menu {
+    width: 100px !important;
+    text-align: center !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border: 1px solid #fdd6e2 !important;    /* 粉色边框 */
+    padding: 4px 0 !important;
+}
+
+/* 下拉菜单项： */
+.el-dropdown-menu__item {
+    color: #606266 !important;
+    line-height: 36px !important;
+    transition: background-color 0.15s, color 0.15s !important;
+}
+
+/* 菜单项内嵌的  */
+.el-dropdown-menu__item div,
+.el-dropdown-menu__item a {
+    color: inherit !important;
+}
+
+/* hover：*/
+.el-dropdown-menu__item:hover,
+.el-dropdown-menu__item:focus {
+    background-color: var(--pink-light) !important;
+    color: var(--pink-deep) !important;
+}
+
+/* 分割线项 */
+.el-dropdown-menu__item--divided {
+    border-top: 1px solid #fdd6e2 !important;
+}
+
+/* 触发器区域文字*/
+.front-header-dropdown {
+    color: #606266;
+}
+.front-header-dropdown:hover {
+    color: var(--pink);
+}
+
+/* ── 主内容区*/
+.main-content {
+    width: 100%;
+    min-width: 1280px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+/* ── ElementUI 覆盖 */
+.el-menu.el-menu--horizontal {
+    border: none !important;
+    height: 59px;
+}
+
+/* ── Tabs 字号 */
+#tab-first, #tab-second {
+    font-size: 16px !important;
+}
+
+/* ── 链接颜色 */
+
+a {
+    color: #606266;
+}
+a:hover {
+    color: var(--pink);
+}
